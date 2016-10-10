@@ -1,0 +1,14 @@
+*.sqlite3
+*.pyc
+node_modules
+npm-debug.log
+.DS_Store
+dist
+.hz
+rethinkdb_data
+*.pem
+
+data.txt
+venv
+staticfiles
+.env
