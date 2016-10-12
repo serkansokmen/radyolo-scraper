@@ -32,18 +32,20 @@ twitter_api = API(auth)
 
 @app.route('/')
 def home(keywords=None):
+    twitter_stream = Stream(auth, StreamListener())
+    twitter_stream.filter(track=['hello'])
     return render_template('home.html')
 
 
 @app.route('/<string:keywords>', methods=['GET'])
 def track_keywords(keywords):
   twitter_stream = Stream(auth, StreamListener())
-  twitter_stream.filter(track=['hello'])
+  twitter_stream.filter(track=[keywords])
   return render_template('home.html')
 
 class StreamListener(streaming.StreamListener):
-    def on_data(self, data):
 
+    def on_data(self, data):
         result = json.loads(data)
         # disallowed_keys = ['retweeted', 'retweeted_status', 'is_quote_status']
         if result.get('retweeted_status') or result.get('is_quote_status'):
@@ -54,7 +56,7 @@ class StreamListener(streaming.StreamListener):
 
         if any(x in message for x in ['http://', 'https://', '@']):
             return
-        print '%s: %s' % (username, message)
+        # print '%s: %s' % (username, message)
         # print '%s' % (message)
         pusher_client.trigger('stream_shannel', 'new_message', result)
 
