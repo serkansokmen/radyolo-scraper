@@ -1,5 +1,6 @@
 *.sqlite3
 *.pyc
+instance/
 node_modules
 npm-debug.log
 .DS_Store
