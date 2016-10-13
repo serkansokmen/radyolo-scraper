@@ -15,3 +15,5 @@ staticfiles
 .env
 
 radyolo/radyolo/settings.py
+
+radyolo/track/*.json
