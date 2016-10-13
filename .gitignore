@@ -13,3 +13,5 @@ data.txt
 venv
 staticfiles
 .env
+
+radyolo/radyolo/settings.py
