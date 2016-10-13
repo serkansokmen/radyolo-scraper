@@ -16,10 +16,10 @@ NEWSPIDER_MODULE = 'radyolo.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'radyolo (+http://www.yourdomain.com)'
+USER_AGENT = 'radyolo (+http://www.radyolo.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -36,13 +36,11 @@ ROBOTSTXT_OBEY = True
 #COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
-#TELNETCONSOLE_ENABLED = False
+# TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-#}
+# DEFAULT_REQUEST_HEADERS = {
+# }
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
@@ -97,3 +95,6 @@ PUSHER_CLUSTER = 'eu'
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+RESTRICTS = ['@', '#', 'http://', 'https://', 't.co/', 'follow', 'RT ', 'QT ']
