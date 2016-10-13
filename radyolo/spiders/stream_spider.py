@@ -23,8 +23,8 @@ class StreamSpider(scrapy.Spider):
 
         for tweet in tweets:
             tweet_item = scrapy_twitter.to_item(tweet)
-            yield StreamItem(
-                username=tweet_item['user']['screen_name'],
-                text=tweet_item['text'],
-                timestamp=tweet_item['timestamp_ms'])
-
+            if tweet_item['user'] != None:
+                yield StreamItem(
+                    username=tweet_item['user']['screen_name'],
+                    text=tweet_item['text'],
+                    timestamp=tweet_item['timestamp_ms'])
