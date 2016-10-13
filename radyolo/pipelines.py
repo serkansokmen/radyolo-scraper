@@ -30,7 +30,7 @@ class PusherPipeline(object):
             raise DropItem("Restricted %s !" % item['text'])
 
         if valid:
-            self.pusher_client.trigger('stream_shannel', 'new_message', {
+            self.pusher_client.trigger('stream_channel', 'new_message', {
                 'username': item['username'],
                 'text': item['text'],
                 'timestamp': item['timestamp'],
