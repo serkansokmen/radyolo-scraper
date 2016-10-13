@@ -1,19 +1,10 @@
 *.sqlite3
 *.pyc
-instance/
 node_modules
 npm-debug.log
 .DS_Store
-dist
-.hz
-rethinkdb_data
-*.pem
-
-data.txt
 venv
-staticfiles
 .env
 
-radyolo/radyolo/settings.py
-
-radyolo/track/*.json
+radyolo/settings.py
+track/*.json
