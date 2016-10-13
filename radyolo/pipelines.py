@@ -25,14 +25,18 @@ class PusherPipeline(object):
             if not data:
                 valid = False
                 raise DropItem("Missing {0}!".format(data))
+
+        if any(txt in item['text'] for txt in settings['RESTRICTS']):
+            valid = False
+            raise DropItem("Restricted %s !" % item['text'])
+
         if valid:
             self.pusher_client.trigger('stream_shannel', 'new_message', {
                 'username': item['username'],
                 'text': item['text'],
                 'timestamp': item['timestamp'],
             })
-            log.msg("Pusher message sent!",
-                level=log.DEBUG, spider=spider)
+            log.msg("Pusher message sent!", level=log.DEBUG, spider=spider)
         return item
 
 
